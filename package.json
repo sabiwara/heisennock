@@ -1,0 +1,70 @@
+{
+  "name": "heisennock",
+  "version": "0.1.3",
+  "description": "TDD-friendly HTTP mocking for nodeJS",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "coverage": "nyc npm t",
+    "lint": "tslint --fix -c tslint.json -p tsconfig.base.json",
+    "mocha": "mocha -b **/**.test.ts **/**/**.test.ts",
+    "prepublishOnly": "npm run build",
+    "report-coverage": "npm run coverage && codecov",
+    "test": "npm run lint && npm run mocha"
+  },
+  "keywords": [
+    "nock",
+    "mock",
+    "http",
+    "test",
+    "tdd"
+  ],
+  "author": "sabiwara <sabiwara@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/sabiwara/heisennock"
+  },
+  "engines": {
+    "node": ">=6.0"
+  },
+  "dependencies": {
+    "@types/nock": "8.2.1",
+    "nock": "9.1.0"
+  },
+  "devDependencies": {
+    "@types/chai": "4.0.4",
+    "@types/mocha": "2.2.44",
+    "@types/sinon": "2.3.7",
+    "@types/superagent": "3.5.6",
+    "chai": "4.1.2",
+    "codecov": "3.0.0",
+    "mocha": "4.0.1",
+    "nyc": "11.3.0",
+    "sinon": "4.1.2",
+    "superagent": "3.8.1",
+    "ts-node": "3.3.0",
+    "tslint": "5.8.0",
+    "typescript": "2.6.1"
+  },
+  "nyc": {
+    "include": [
+      "src/*.ts"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "lcov"
+    ],
+    "all": true
+  }
+}
