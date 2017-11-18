@@ -1,9 +1,8 @@
 # heisennock
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/sabiwara/heisennock.svg)](https://greenkeeper.io/)
-
 [![Build Status](https://travis-ci.org/sabiwara/heisennock.svg?branch=master)](https://travis-ci.org/sabiwara/heisennock)
 [![codecov](https://codecov.io/gh/sabiwara/heisennock/branch/master/graph/badge.svg)](https://codecov.io/gh/sabiwara/heisennock)
+[![Greenkeeper badge](https://badges.greenkeeper.io/sabiwara/heisennock.svg)](https://greenkeeper.io/)
 
 `heisennock` is a TDD-friendly wrapper for the awesome HTTP mocking library [nock](https://github.com/node-nock/nock).
 It totally removes the assertion logic from `nock`, focusing on the mocking and making **contract checking** a breeze by using the assertion library of your choice ([chai](http://chaijs.com/)...).
