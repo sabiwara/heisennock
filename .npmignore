@@ -3,3 +3,6 @@ src
 test
 ts*.json
 coverage
+coverage.lcov
+.nyc_output
+.travis.yml
