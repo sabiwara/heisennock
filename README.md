@@ -47,10 +47,10 @@ For a more TDD-friendly way of failing, we could come up with the following hack
 const nock = require('nock');
 
 // hijacking nock's API
-let payload;
+let body;
 const myNock = nock('http://localhost:9876')
-  .post('/some/path', _payload => {
-    payload = _payload;  // use a closure to "capture" the body
+  .post('/some/path', _body => {
+    body = _body;  // use a closure to "capture" the body
     return true;  // lie to the nock matcher so we can handle our assertion later
   })
   .reply(201);
@@ -58,7 +58,7 @@ const myNock = nock('http://localhost:9876')
 theCallWeAreTesting();
 
 // => now we'll get a proper diff and stacktrace, and know exactly why we failed
-expect(payload).to.deep.equal({ message: 'Say my name!' });
+expect(body).to.deep.equal({ message: 'Say my name!' });
 ```
 
 > "Oh my god, this is ugly!"
@@ -80,7 +80,7 @@ const myNock = hnock('http://localhost:9876')
 theCallWeAreTesting();
 
 // 2) a simple way of doing a proper maintainable assertion
-expect(myNock.payload()).to.deep.equal({ message: 'Say my name!' });
+expect(myNock.body()).to.deep.equal({ message: 'Say my name!' });
 ```
 
 ## Install
@@ -114,7 +114,7 @@ As said above, it is critical to perform proper contract checking on your mocks.
 Always assert that the following items are matching your expectations:
 - numbers of calls
 - headers
-- payloads (bodies)
+- bodies
 - querystrings
 
 ```javascript
@@ -130,7 +130,7 @@ expect(myNock.url()).to.equal('/api/path');
 expect(myNock.header('authorization')).to.equal('Bearer token');
 expect(myNock.headers('authorization', 'accept'))
   .to.deep.equal({ authorization: 'Bearer token', accept: 'application/json' });
-expect(myNock.payload()).to.deep.equal({ message: 'Say my name!' });
+expect(myNock.body()).to.deep.equal({ message: 'Say my name!' });
 expect(myNock.query()).to.deep.equal({ q: 'heisenberg' });
 ```
 
@@ -147,7 +147,7 @@ expect(myNock.allHeaders('authorization')).to.deep.equal([
   { authorization: 'Bearer token1' },
   { authorization: 'Bearer token2' }
   );
-expect(myNock.payloads()).to.deep.equal([
+expect(myNock.bodies()).to.deep.equal([
   { message: 'Say my name!' },
   { message: 'You\'re goddam right!' }
 ]);
