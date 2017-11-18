@@ -170,6 +170,16 @@ const myNock = hnock('http://localhost:9876')
   .replyWithError({ code: 'ECONNREFUSED' });
 ```
 
+#### replyWithFile()
+
+Same as the original method from `nock`.
+
+```javascript
+const myNock = hnock('http://localhost:9876')
+  .post('/some/path')
+  .replyWithFile(200, path.join(__dirname, 'fixture.json'), { 'Content-Type': 'application/json' });
+```
+
 #### times()
 
 Same as the original method from `nock`.

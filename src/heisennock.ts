@@ -29,6 +29,7 @@ export interface HttpHeaders {
 export interface PartialInterceptor {
   reply(status: number, body?: any, headers?: HttpHeaders): Interceptor;
   replyWithError(error: any): Interceptor;
+  replyWithFile(status: number, filename: string, headers?: HttpHeaders): Interceptor;
   times(times: number): PartialInterceptor;
 }
 
@@ -107,12 +108,18 @@ function _createPartialInterceptor(params: InterceptorParams): PartialIntercepto
     interceptor.original.replyWithError(error);
     return interceptor;
   }
+  function replyWithFile(status: number, filename: string, headers?: HttpHeaders): Interceptor {
+    const interceptor = _buildInterceptor(params);
+    interceptor.original.replyWithFile(status, filename, headers);
+    return interceptor;
+  }
   function times(times: number): PartialInterceptor {
     return _createPartialInterceptor({ ...params, times });
   }
   return {
     reply,
     replyWithError,
+    replyWithFile,
     times
   };
 }

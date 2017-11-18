@@ -1,3 +1,4 @@
+import * as path from "path";
 import { expect } from "chai";
 import * as sinon from "sinon";
 import * as superagent from "superagent";
@@ -126,6 +127,41 @@ describe("hnock", () => {
 
       expect(nocked.callCount).to.equal(1);
       expect({ message, code }).to.deep.equal({ message: "Something blew up", code: "BOOM" });
+    });
+  });
+
+  describe("#replyWithFile()", () => {
+    it("should work with a file path and headers", async () => {
+      const fixtureFile = path.join(__dirname, "fixture.json");
+      const nocked = hnock("http://localhost:9000")
+        .get("/some/path")
+        .replyWithFile(242, fixtureFile, { "Content-Type": "application/json" });
+
+      const { status, body } = await superagent.get("http://localhost:9000/some/path");
+
+      expect({ status, body }).to.deep.equal({
+        status: 242,
+        body: {
+          firstname: "Jessie",
+          lastname: "Pinkman"
+        }
+      });
+      expect(nocked.callCount).to.equal(1);
+    });
+
+    it("should work with just a file path", async () => {
+      const fixtureFile = path.join(__dirname, "fixture.json");
+      const nocked = hnock("http://localhost:9000")
+        .get("/some/path")
+        .replyWithFile(242, fixtureFile);
+
+      const { status, text } = await superagent.get("http://localhost:9000/some/path");
+
+      expect({ status, text }).to.deep.equal({
+        status: 242,
+        text: `{"firstname":"Jessie","lastname":"Pinkman"}`
+      });
+      expect(nocked.callCount).to.equal(1);
     });
   });
 
