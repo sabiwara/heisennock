@@ -1,5 +1,7 @@
 # heisennock
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sabiwara/heisennock.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/sabiwara/heisennock.svg?branch=master)](https://travis-ci.org/sabiwara/heisennock)
 [![codecov](https://codecov.io/gh/sabiwara/heisennock/branch/master/graph/badge.svg)](https://codecov.io/gh/sabiwara/heisennock)
 
