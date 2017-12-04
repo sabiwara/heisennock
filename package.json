@@ -33,7 +33,7 @@
     "nock": "9.1.4"
   },
   "devDependencies": {
-    "@types/chai": "4.0.7",
+    "@types/chai": "4.0.8",
     "@types/mocha": "2.2.44",
     "@types/nock": "8.2.1",
     "@types/sinon": "4.0.0",
