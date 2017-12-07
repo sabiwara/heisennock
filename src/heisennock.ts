@@ -133,12 +133,12 @@ function _buildInterceptor(params: InterceptorParams): Interceptor {
   baseScope.on("request", ctx => {
     _headers.push(ctx.headers);
     const rawUrl: string = ctx.path;
-    const parsedUrl = parseUrl(rawUrl);
+    const parsedUrl = parseUrl(rawUrl, false);
     /* istanbul ignore else */
     if (parsedUrl.pathname) {
       _urls.push(parsedUrl.pathname);
     }
-    const qs = querystring.parse(parsedUrl.query);
+    const qs = querystring.parse(<string> parsedUrl.query);
     _queries.push(qs);
     return true;
   });
