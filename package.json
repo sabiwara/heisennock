@@ -36,7 +36,7 @@
     "@types/chai": "4.0.8",
     "@types/mocha": "2.2.44",
     "@types/nock": "8.2.1",
-    "@types/sinon": "4.1.0",
+    "@types/sinon": "4.1.1",
     "@types/superagent": "3.5.6",
     "chai": "4.1.2",
     "codecov": "3.0.0",
