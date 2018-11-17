@@ -43,7 +43,7 @@
     "mocha": "^5.0.0",
     "nyc": "^12.0.2",
     "sinon": "^6.0.0",
-    "superagent": "^3.8.2",
+    "superagent": "^4.0.0",
     "ts-node": "^7.0.0",
     "tslint": "^5.9.0",
     "typescript": "^2.6.2"
