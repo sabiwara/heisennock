@@ -27,7 +27,7 @@
     "url": "http://github.com/sabiwara/heisennock"
   },
   "engines": {
-    "node": ">=6.0"
+    "node": ">=8.9"
   },
   "dependencies": {
     "nock": "11.7.2"
