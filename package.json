@@ -30,7 +30,7 @@
     "node": ">=8.9"
   },
   "dependencies": {
-    "nock": "11.7.2"
+    "nock": "11.8.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.8",
