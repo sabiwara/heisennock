@@ -1,6 +1,6 @@
 {
   "name": "heisennock",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "TDD-friendly HTTP mocking for nodeJS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
