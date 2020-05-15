@@ -36,7 +36,7 @@
     "@types/chai": "^4.2.8",
     "@types/mocha": "^7.0.1",
     "@types/nock": "^11.1.0",
-    "@types/sinon": "^9.0.0",
+    "@types/sinon": "^9.0.1",
     "@types/superagent": "^4.1.6",
     "chai": "^4.2.0",
     "codecov": "^3.6.4",
